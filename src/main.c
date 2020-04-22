@@ -1,7 +1,5 @@
 #include <gtk/gtk.h>
 
-#include "main.h"
-
 GtkBuilder *builder;
 GtkWindow *main_window;
 
