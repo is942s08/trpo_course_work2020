@@ -1,19 +1,25 @@
 #include <gtk/gtk.h>
+#include "settings.h"
 
-GtkBuilder *builder;
-GtkWindow *main_window;
+GtkWindow* main_window;
+
+void init()
+{
+	GtkBuilder* builder = gtk_builder_new();
+	gtk_builder_add_from_file(builder, "glade/app.glade", NULL);
+
+	main_window = GTK_WINDOW(gtk_builder_get_object(builder, "main_window"));
+	settings_window = GTK_WINDOW(gtk_builder_get_object(builder, "settings_window"));
+	gtk_builder_connect_signals(builder, NULL);
+
+	g_object_unref(builder);
+}
 
 int main(int argc, char *argv[])
 {
 	gtk_init(&argc, &argv);
 
-	builder = gtk_builder_new();
-	gtk_builder_add_from_file (builder, "glade/app.glade", NULL);
-
-	main_window = GTK_WINDOW(gtk_builder_get_object(builder, "main_window"));
-	gtk_builder_connect_signals(builder, NULL);
-
-	g_object_unref(builder);
+	init();
 
 	gtk_widget_show(GTK_WIDGET(main_window));
 	gtk_main();
@@ -39,6 +45,7 @@ void on_menu_button_export_activate()
 void on_menu_button_settings_activate()
 {
 	// to do
+	gtk_widget_show(GTK_WIDGET(settings_window));
 }
 
 void on_menu_button_quit_activate()
