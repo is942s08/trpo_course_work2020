@@ -14,9 +14,14 @@ void on_difficulty_setting_changed()
 	// set difficulty
 }
 
+void on_settings_window_delete_event()
+{
+	gtk_widget_hide(GTK_WIDGET(settings_window));
+}
+
 void on_settings_accept_button_clicked()
 {
 	// to do
 	// save settings
-	gtk_window_close(settings_window);
+	gtk_widget_hide(GTK_WIDGET(settings_window));
 }

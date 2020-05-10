@@ -194,6 +194,8 @@
     <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center</property>
+    <property name="transient_for">main_window</property>
+    <signal name="delete-event" handler="on_settings_window_delete_event" swapped="yes"/>
     <signal name="show" handler="on_settings_window_show" swapped="no"/>
     <child>
       <placeholder/>
