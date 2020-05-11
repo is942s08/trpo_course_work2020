@@ -1,4 +1,4 @@
-OBJ_FILES=src/main.o src/settings.o
+OBJ_FILES=src/main.o src/settings.o src/users.o
 GTK_LIB=`pkg-config --cflags --libs gtk+-3.0`
 
 all: app 

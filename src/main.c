@@ -1,5 +1,6 @@
 #include <gtk/gtk.h>
 #include "settings.h"
+#include "users.h"
 
 GtkWindow* main_window;
 
@@ -10,6 +11,7 @@ void init()
 
 	main_window = GTK_WINDOW(gtk_builder_get_object(builder, "main_window"));
 	settings_window = GTK_WINDOW(gtk_builder_get_object(builder, "settings_window"));
+	change_user_window = GTK_WINDOW(gtk_builder_get_object(builder, "change_user_window"));
 	gtk_builder_connect_signals(builder, NULL);
 
 	g_object_unref(builder);
@@ -61,6 +63,7 @@ void on_menu_button_statistics_activate()
 void on_menu_button_change_user_activate()
 {
 	// to do
+	gtk_widget_show(GTK_WIDGET(change_user_window));
 }
 
 void on_menu_button_about_activate()
